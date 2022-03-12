@@ -1,5 +1,4 @@
-﻿
-using Lab2.Services;
+﻿using Lab2.Services;
 using Lab2.Services.RequirementsProcessing.Builder;
 
 var builder = new RequirementProcessorBuilder();
