@@ -1,8 +1,8 @@
-﻿namespace Lab2.Models;
+﻿namespace Lab2.Entities;
 
-public class Requirement
+public record Requirement
 {
-    public string Title { get; set; } = "";
-    public string Description { get; set; } = "";
-    public DateTime CreatedAtUtc { get; set; }
+    public string Title { get; init; } = "";
+    public string Description { get; init; } = "";
+    public DateTime CreatedAtUtc { get; init; }
 }

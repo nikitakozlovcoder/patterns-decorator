@@ -1,4 +1,4 @@
-﻿using Lab2.Models;
+﻿using Lab2.Entities;
 
 namespace Lab2.Services;
 

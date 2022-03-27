@@ -1,4 +1,4 @@
-﻿using Lab2.Models;
+﻿using Lab2.Entities;
 
 namespace Lab2.Services;
 
@@ -6,12 +6,14 @@ public class UserInteractorService : IUserInteractorService
 {
     public void ShowRequirement(Requirement requirement)
     {
+        Console.WriteLine("---");
         Console.WriteLine(requirement.Title);
         Console.WriteLine(requirement.Description);
         if (requirement.CreatedAtUtc != default)
         {
             Console.WriteLine(requirement.CreatedAtUtc + " UTC");
         }
+        Console.WriteLine();
     }
 
     public Requirement GetRequirement()

@@ -1,4 +1,4 @@
-﻿using Lab2.Models;
+﻿using Lab2.Entities;
 
 namespace Lab2.Services.RequirementsProcessing;
 
@@ -7,9 +7,11 @@ public class TimeAdderDecorator : BaseDecorator<IRequirementProcessor>, IRequire
     public TimeAdderDecorator(IRequirementProcessor actor) : base(actor)
     {
     }
-    public void Process(Requirement requirement)
-    {
-       Actor.Process(requirement);
-       requirement.CreatedAtUtc = DateTime.UtcNow;
+    public Requirement Process(Requirement requirement)
+    { 
+        return Actor.Process(requirement) with
+       {
+           CreatedAtUtc = DateTime.UtcNow
+       };
     }
 }

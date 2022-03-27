@@ -1,4 +1,4 @@
-﻿using Lab2.Models;
+﻿using Lab2.Entities;
 
 namespace Lab2.Services.RequirementsProcessing;
 
@@ -7,11 +7,13 @@ public class RequirementFormatterDecorator : BaseDecorator<IRequirementProcessor
     public RequirementFormatterDecorator(IRequirementProcessor actor) : base(actor)
     {
     }
-    public void Process(Requirement requirement)
-    {
-        Actor.Process(requirement);
-        requirement.Title = $"Title: {requirement.Title}";
-        requirement.Description = $"Description: {requirement.Description}";
-    }
     
+    public Requirement Process(Requirement requirement)
+    {
+        return Actor.Process(requirement) with
+        {
+            Title = $"Title: {requirement.Title}",
+            Description = $"Description: {requirement.Description}"
+        };
+    }
 }

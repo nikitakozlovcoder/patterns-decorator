@@ -1,4 +1,4 @@
-﻿using Lab2.Models;
+﻿using Lab2.Entities;
 
 namespace Lab2.Services.RequirementsProcessing;
 
@@ -8,9 +8,10 @@ public class RequirementLoggerDecorator : BaseDecorator<IRequirementProcessor>, 
     {
     }
 
-    public void Process(Requirement requirement)
+    public Requirement Process(Requirement requirement)
     {
-       Actor.Process(requirement);
+       requirement = Actor.Process(requirement);
        new UserInteractorService().ShowRequirement(requirement);
+       return requirement;
     }
 }

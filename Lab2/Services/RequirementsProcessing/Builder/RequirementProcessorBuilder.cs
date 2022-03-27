@@ -21,6 +21,12 @@ public class RequirementProcessorBuilder : IRequirementProcessorBuilder
         return this;
     }
 
+    public IRequirementProcessorBuilder AddStoreSaver()
+    {
+        _processor = new RequirementSaver(_processor);
+        return this;
+    }
+
     public IRequirementProcessor Build()
     {
         var processor = _processor;

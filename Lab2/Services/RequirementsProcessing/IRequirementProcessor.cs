@@ -1,8 +1,8 @@
-﻿using Lab2.Models;
+﻿using Lab2.Entities;
 
 namespace Lab2.Services.RequirementsProcessing;
 
 public interface IRequirementProcessor
 {
-    public void Process(Requirement requirement);
+    public Requirement Process(Requirement requirement);
 }
